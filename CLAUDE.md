@@ -11,5 +11,5 @@ Universal coding rules in `~/.claude/coding-rules.md` apply. This file adds what
 - **Data never goes in git.** `data/` (SQLite history and raw API archive) is local and gitignored; only exported JSON in `frontend/public/data/` is committed.
 - **History is append-only.** A collection run adds snapshot rows; it never edits or deletes earlier weeks.
 - **Keep every raw API response** in `data/raw/` before parsing, so fields can be re-read later without paying again.
-- **Each job sits behind one narrow interface** (discovery, TikTok tracking, YouTube tracking, Twitch), and config picks which provider implements it. Moving a job to another provider means a new implementation plus a config change, nothing else.
-- **All settings live in Hydra config under `backend/conf/`**, validated by a structured config schema. No tunable values (providers, channel lists, limits, paths) hard-coded in modules.
+- **Each external data provider sits behind one narrow interface** so it can be swapped (the TikTok provider is not final).
+- **Never push directly to `main`.** Every change goes on its own branch and lands through a pull request.
