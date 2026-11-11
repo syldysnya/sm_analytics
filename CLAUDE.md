@@ -11,3 +11,4 @@ Universal coding rules in `~/.claude/coding-rules.md` apply. This file adds what
 - **History is append-only.** A collection run adds snapshot rows; it never edits or deletes earlier weeks.
 - **Keep every raw API response** in `data/raw/` before parsing, so fields can be re-read later without paying again.
 - **Each external data provider sits behind one narrow interface** so it can be swapped (the TikTok provider is not final).
+- **Never push directly to `main`.** Every change goes on its own branch and lands through a pull request.
